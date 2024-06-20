@@ -4,6 +4,7 @@ import 'package:myportfolio/constants/styles.dart';
 import 'package:myportfolio/screens/widgets/Service.dart';
 import 'package:myportfolio/screens/widgets/header.dart';
 import 'package:myportfolio/screens/widgets/rotatingimage.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class Desktoplayout extends StatefulWidget {
   const Desktoplayout({super.key});
@@ -63,8 +64,15 @@ class _DesktoplayoutState extends State<Desktoplayout> {
             padding: EdgeInsets.symmetric(vertical: size.width*0.05),
             child: Column(
               children: [
-                GradientTextWidget(size: size,text1: 'My Project Works',),
-                SizedBox(height: 5,),
+                GradientText( 'My Project Works',colors:[colors.studio,colors.paleSlate
+                ],
+                style: TextStyle(
+                  fontSize: size.width*0.035,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins'
+                ),
+                ),
+                SizedBox(height: size.height*0.06,),
                 Text('Projects shows the enrollment and effectiveness that made during the implementation of it. The providence of the product will be sure and Quality of service ',
                 style: TextStyle(
                   fontSize: size.width*0.012,

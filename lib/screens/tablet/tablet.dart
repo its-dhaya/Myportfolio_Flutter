@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myportfolio/constants/styles.dart';
+import 'package:myportfolio/screens/widgets/Service.dart';
 import 'package:myportfolio/screens/widgets/cv.dart';
 import 'package:myportfolio/screens/widgets/header.dart';
 import 'package:myportfolio/screens/widgets/rotatingimage.dart';
@@ -58,8 +59,11 @@ class _TabletLayoutState extends State<TabletLayout> {
                 ],
               ),
  
-            ],),
-          )
+            ],
+            ),
+           
+          ),
+          ServicesWidget(size: size)
         ],
       ),
      ),
