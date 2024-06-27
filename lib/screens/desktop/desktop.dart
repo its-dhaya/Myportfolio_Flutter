@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myportfolio/constants/colors.dart';
 import 'package:myportfolio/constants/styles.dart';
+import 'package:myportfolio/screens/widgets/Custortabbar.dart';
 import 'package:myportfolio/screens/widgets/Service.dart';
 import 'package:myportfolio/screens/widgets/header.dart';
 import 'package:myportfolio/screens/widgets/rotatingimage.dart';
@@ -13,7 +14,21 @@ class Desktoplayout extends StatefulWidget {
   State<Desktoplayout> createState() => _DesktoplayoutState();
 }
 
-class _DesktoplayoutState extends State<Desktoplayout> {
+class _DesktoplayoutState extends State<Desktoplayout> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -84,6 +99,24 @@ class _DesktoplayoutState extends State<Desktoplayout> {
                 ServicesWidget(size: size)
               ],
             ),
+          ),
+          Container(
+            width: size.width,
+            padding: EdgeInsets.symmetric(vertical: size.width*0.05),
+            child: Column(children: [
+              GradientTextWidget(size: size,
+              text1: "My Recent Playes",),
+              SizedBox(height: size.height*0.06,),
+              CustomTabBar(
+                tabController:_tabController ,
+              )
+              
+            ],
+            ),
+          ),
+          Container(
+            height: size.height,
+            child: ProjectTabBarView(tabController: _tabController ,),
           )
         ],
       ),
