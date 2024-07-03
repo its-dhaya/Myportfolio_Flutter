@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myportfolio/constants/colors.dart';
+import 'package:myportfolio/screens/widgets/textwidget.dart';
 
 class Projectcard extends StatefulWidget {
   const Projectcard({super.key});
@@ -24,21 +25,44 @@ class _ProjectcardState extends State<Projectcard> {
         decoration: BoxDecoration(color: colors.valhalla.withOpacity(0.8),
         borderRadius: BorderRadius.circular(15)
         ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Stack(
-          children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              
-              margin: EdgeInsets.all(50),
-              
-              child: Image.asset('assets/images/chattify.jpeg'),
+      child: Stack(
+        children: [
+        Container(
+          
+          margin: EdgeInsets.all(50),
+          
+          child: Image.asset('assets/images/chattify.jpeg'),
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: AnimatedContainer(duration:  Duration(microseconds: 300),
+          curve: Curves.bounceIn,
+          height: _isHovered?size.width:0,
+          width: size.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: colors.studio
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(child: Center(
+                    child: TextWidget(sSize: size,text: "Chat App",
+                    size: 18,
+                    ),
+                  ),)
+                ],
+              ),
             ),
-          )
-        ],),
-      ),
+          ),
+          ),
+        )
+      ],),
       ),
     );
   }
